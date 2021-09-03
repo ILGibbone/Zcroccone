@@ -11,9 +11,10 @@ class ZcroccoPipeline(object):
 	def process_item(self, item, spider):
 		def discrimine(giorno):
 			discrimine="cocktail"
-			if discrimine not in item.get(giorno):
-				item[giorno]=""
+			if isinstance(item.get(giorno),bytes):
+				if discrimine not in item.get(giorno).decode("utf-8"):
+				   item[giorno]=""
 		settimana=["lunedi","martedi","mercoledi","giovedi","venerdi","sabato"]
 		for giorno in settimana:
-			discrimine(giorno)		
+			discrimine(giorno)
 		return item
