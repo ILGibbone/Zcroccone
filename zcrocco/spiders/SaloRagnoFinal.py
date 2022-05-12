@@ -5,7 +5,7 @@ from zcrocco.items import Serata
 class SaloRagno(scrapy.Spider):
 	name = 'saloragno'
 	start_urls = [
-		'https://fuorisalone.it/2021/it/design-guide/'
+		'https://www.fuorisalone.it/it/2022/eventi'
 	]
 
 	def parse(self, response):
@@ -14,7 +14,6 @@ class SaloRagno(scrapy.Spider):
 		for pagina in lista:
 			print(f'pagina is {pagina}')
 			yield scrapy.Request(pagina, self.parse_pages)
-
 
 		#scorri
 		next_page = response.xpath('//a[@rel="next"]/@href').extract_first()
