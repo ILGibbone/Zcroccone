@@ -20,5 +20,10 @@ class Serata(scrapy.Item):
     giovediora=scrapy.Field()
     venerdi=scrapy.Field()
     venerdiora=scrapy.Field()
-    sabato=scrapy.Field() 
-    sabatoora=scrapy.Field()  
+    sabato=scrapy.Field()
+    sabatoora=scrapy.Field()
+
+class Interni(scrapy.Item):
+    name=scrapy.Field()
+    cocktails=scrapy.Field()
+    address=scrapy.Field()

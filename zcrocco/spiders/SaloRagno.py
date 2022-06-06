@@ -12,8 +12,9 @@ class SaloRagno(scrapy.Spider):
 		lista=response.xpath('//a[@class="col-xs-12 nopadding item_related_link event_box_item special"]/@href').extract()
 		print(len(lista))
 		for pagina in lista:
-			print(f'pagina is {pagina}')
-			yield scrapy.Request(pagina, self.parse_pages)
+			if "fuorisalone.it" in pagina:
+				print(f'pagina is {pagina}')
+				yield scrapy.Request(pagina, self.parse_pages)
 
 		#scorri
 		next_page = response.xpath('//a[@rel="next"]/@href').extract_first()
